@@ -1,0 +1,66 @@
+plugins {
+    id 'java'
+    id 'application'
+    id "edu.wpi.first.GradleRIO" version "2020.3.2"
+    id 'org.openjfx.javafxplugin' version '0.0.8'
+}
+
+group 'org.6378'
+version '2020.2.2'
+
+sourceCompatibility = 1.8
+mainClassName = 'LynxVision'
+
+repositories {
+    mavenCentral()
+    maven { url "https://frcmaven.wpi.edu/artifactory/release/" }
+}
+
+
+dependencies {
+    //JavaFx for custom widgets
+    compile group: 'de.dynamicfiles.projects.gradle.plugins', name: 'javafx-gradle-plugin', version: '8.8.2'
+    javafx {
+        version = '12'
+        modules = [ 'javafx.controls', 'javafx.fxml' ]
+    }
+
+    testCompile group: 'junit', name: 'junit', version: '4.12'
+    // Add cscore
+    compile group: 'edu.wpi.first.cscore', name: 'cscore-java', version: "$version"
+    compile group: 'edu.wpi.first.thirdparty.frc2020.opencv', name: 'opencv-java', version: "3.4.7-2"
+    runtime "edu.wpi.first.cscore:cscore-jni:$version:windowsx86-64"
+
+    // Add ntcore-java
+    compile "edu.wpi.first.ntcore:ntcore-java:$version"
+
+    //Add opencv
+    runtime "edu.wpi.first.thirdparty.frc2020.opencv:opencv-jni:3.4.7-2:windowsx86-64"
+
+    // Add wpiutil-java
+    compile "edu.wpi.first.wpiutil:wpiutil-java:$version"
+
+    // Add ntcore-jni for runtime. We are adding all supported platforms
+    // so that our application will work on all supported platforms.
+    runtime "edu.wpi.first.ntcore:ntcore-jni:$version:windowsx86"
+    runtime "edu.wpi.first.ntcore:ntcore-jni:$version:windowsx86-64"
+    runtime "edu.wpi.first.ntcore:ntcore-jni:$version:linuxx86-64"
+    runtime "edu.wpi.first.ntcore:ntcore-jni:$version:osxx86-64"
+
+    implementation "edu.wpi.first.shuffleboard:api:$version"
+    implementation "edu.wpi.first.shuffleboard:shuffleboard:$version"
+
+    implementation "edu.wpi.first.hal:hal-java:$version"
+    implementation "edu.wpi.first.hal:hal-jni:$version"
+
+    implementation "edu.wpi.first.wpilibj:wpilibj-java:$version"
+    implementation(group: "edu.wpi.first.shuffleboard", name: "api", version: "2020.2.2")
+
+    //JAR files
+    implementation files('jars/cameraserver.jar')
+    implementation files('jars/wpiHal.jar')
+    implementation files('jars/wpilibj.jar')
+    implementation files('jars/wpiutil.jar')
+}
+
+
