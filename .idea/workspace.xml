@@ -1,7 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="5bb22d20-6118-4f42-83ec-ed8eb8410394" name="Default Changelist" comment="" />
+    <list default="true" id="5bb22d20-6118-4f42-83ec-ed8eb8410394" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networktables.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,7 +36,7 @@
     </option>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/LynxVisionV2" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1ZByLPziUXeCYqsfDCCDOZeYBQc" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
@@ -31,10 +47,11 @@
   </component>
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShuffleboardWigets" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShuffleboardWidgetExample" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
     <property name="show.unlinked.gradle.project.popup" value="true" />
   </component>
   <component name="RecentsManager">
@@ -79,6 +96,11 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/LynxVisionV2" />
+    </ignored-roots>
+  </component>
   <component name="WindowStateProjectService">
     <state x="765" y="250" key="#com.intellij.ide.util.MemberChooser" timestamp="1584395465201">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -88,9 +110,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584367029104" />
-    <state x="740" y="295" key="FileChooserDialogImpl" timestamp="1584475027665">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1584650743755">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584650743755" />
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1584475027665" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1584330902269">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -108,16 +131,18 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584330902268" />
-    <state x="440" y="115" key="SettingsEditor" timestamp="1584380324295">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="440" y="111" key="SettingsEditor" timestamp="1584649598561">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="440" y="111" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584649598561" />
     <state x="440" y="115" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584380324295" />
-    <state x="342" y="153" key="new project wizard" timestamp="1584479167773">
-      <screen x="0" y="0" width="1920" height="1080" />
+    <state x="342" y="147" key="new project wizard" timestamp="1584635195169">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="342" y="147" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1584635195169" />
     <state x="342" y="153" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1584479167773" />
   </component>
   <component name="WpiLibVersionService">
-    <option name="lastChecked" value="20200318180118" />
+    <option name="lastChecked" value="20200319164532" />
   </component>
 </project>

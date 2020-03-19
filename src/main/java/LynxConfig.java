@@ -28,12 +28,11 @@ public class LynxConfig {
     public LynxConfig(NetworkTableInstance instance){
         this.instance = instance;
         table = instance.getTable("Lynx Vision");
-        //hueSettings = table.getEntry("Hue Settings");
 
         //Shuffleboard tab
         lynxTab = Shuffleboard.getTab("Lynx Vision");
 
-        //Get blur amount from shuffleboard
+        //Get blur radius from shuffleboard
         blurSettings = lynxTab.addPersistent("Blur Settings", 0).
                 withWidget(BuiltInWidgets.kNumberSlider)
                 .withProperties(Map.of("min", 0, "max", 100))
@@ -54,7 +53,7 @@ public class LynxConfig {
 
     public void grabSettings(){
         threshHoldSettings = hsvSettings.getDoubleArray(new double[]{0});
-        blurAmount = hsvSettings.getDouble(0.0);
+        blurAmount = blurSettings.getDouble(0.0);
     }
 
 
