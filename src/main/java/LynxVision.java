@@ -35,18 +35,14 @@ public class LynxVision {
             LynxConfig settings = new LynxConfig(NTinstance);
 
             //Holds all pipeline outputs to switch between
-            List<LynxCameraServer> frames = new ArrayList<>();
+            LynxCameraServer frames = new LynxCameraServer();
 
-            //Start new camera feed
-            LynxCameraServer rawFrame = new LynxCameraServer("Frame");
-            frames.add(rawFrame);
 
             //LynxPipeline is responsible for all image processing
             LynxPipeline pipeline = new LynxPipeline(settings, frames);
 
             //Continue while thread is not interrupted
             while(!Thread.interrupted()){
-                rawFrame.putFrame(frame);
 
                 //Grab settings again if they have changed
                 settings.grabSettings();
@@ -54,6 +50,12 @@ public class LynxVision {
                 //Process Frame
                 pipeline.process(frame);
 
+                //output frame to camera server
+                if(settings.cameraIndex == 100){
+                    frames.publishAll();
+                }else{
+                    frames.publishFrame( (settings.cameraIndex + frames.frames.size()) % frames.frames.size());
+                }
 
             }
 

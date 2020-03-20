@@ -11,11 +11,12 @@ import java.util.Map;
 
 
 public class LynxConfig {
-    //NT instance
+    //NT entries
     NetworkTableInstance instance;
     NetworkTable table;
     NetworkTableEntry hsvSettings;
     NetworkTableEntry blurSettings;
+    NetworkTableEntry cameraOutput;
 
     //Declare shuffleboard tab
     ShuffleboardTab lynxTab;
@@ -23,6 +24,7 @@ public class LynxConfig {
     //Stores all settings
     double[] threshHoldSettings;
     double blurAmount;
+    int cameraIndex;
 
 
     public LynxConfig(NetworkTableInstance instance){
@@ -44,6 +46,12 @@ public class LynxConfig {
                 .withWidget("HSV Settings")
                 .getEntry();
 
+        //Get which output user wants outputted to the CameraServer, if they want all the frames to be published, the number provided would be 100
+        cameraOutput = lynxTab.addPersistent("OutputStream Index", 30)
+                .withWidget(BuiltInWidgets.kTextView)
+                .getEntry();
+
+
         Shuffleboard.update();
 
         //grab initial settings
@@ -54,6 +62,7 @@ public class LynxConfig {
     public void grabSettings(){
         threshHoldSettings = hsvSettings.getDoubleArray(new double[]{0});
         blurAmount = blurSettings.getDouble(0.0);
+        cameraIndex = cameraOutput.getNumber(100).intValue();
     }
 
 

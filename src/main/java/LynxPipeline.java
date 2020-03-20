@@ -10,11 +10,8 @@ import java.util.List;
 public class LynxPipeline {
 
     LynxConfig settings;
-    List<LynxCameraServer> frames;
+    LynxCameraServer frames;
 
-    //Holds output mats after processing
-    LynxCameraServer hsvOutputStream;
-    LynxCameraServer blurOutputStream;
 
 
     //HSV settings
@@ -29,17 +26,10 @@ public class LynxPipeline {
     Mat blurOutput = new Mat();
     double blurRadius;
 
-    public LynxPipeline(LynxConfig settings, List<LynxCameraServer> frames){
+    public LynxPipeline(LynxConfig settings, LynxCameraServer frames){
         //This allows us to access the settings entered on the shuffleboard and output them to the camera server
         this.settings = settings;
         this.frames = frames;
-
-        //Start camera server
-        hsvOutputStream = new LynxCameraServer("HSV output");
-        frames.add(hsvOutputStream);
-
-        blurOutputStream = new LynxCameraServer("Blur output");
-        frames.add(blurOutputStream);
     }
 
     public void process(Mat frame){
@@ -47,16 +37,19 @@ public class LynxPipeline {
         blurRadius = settings.blurAmount;
         blur(frame, blurRadius, blurOutput);
 
+
         //Use hsv settings from range sliders on shuffleboard to threshold frame
         hueValues = new double[]{settings.threshHoldSettings[0], settings.threshHoldSettings[1]};
         saturationValues = new double[]{settings.threshHoldSettings[2], settings.threshHoldSettings[3]};
         valueValues =  new double[]{settings.threshHoldSettings[4], settings.threshHoldSettings[5]};
+
         //Use the blur output, then perform the HSV thresholds
         hsvThreshold(blurOutput, hueValues, saturationValues, valueValues, hsvThresholdOutput);
 
         //Output to camera server
-        blurOutputStream.putFrame(blurOutput);
-        hsvOutputStream.putFrame(hsvThresholdOutput);
+        frames.addFrame("CameraFrame", frame);
+        frames.addFrame("HSV Output", hsvThresholdOutput);
+        frames.addFrame("Blur Output", blurOutput);
     }
 
 
