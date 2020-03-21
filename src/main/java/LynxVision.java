@@ -1,23 +1,14 @@
-import edu.wpi.first.cameraserver.CameraServer;
-import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
+
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.wpilibj.shuffleboard.BuiltInWidgets;
-import edu.wpi.first.wpilibj.shuffleboard.Shuffleboard;
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
 
-import java.io.File;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 
 public class LynxVision {
 
-    public static void main(String[] args) throws IOException {
+    public static void main(String[] args) throws IOException{
         //Load DLLs
         loadDLLs();
 
@@ -32,7 +23,8 @@ public class LynxVision {
             NTinstance.startServer();
 
             //Get configs from Smartdashboard
-            LynxConfig settings = new LynxConfig(NTinstance);
+            LynxConfig settings;
+            settings = new LynxConfig(NTinstance);
 
             //Holds all pipeline outputs to switch between
             LynxCameraServer frames = new LynxCameraServer();
