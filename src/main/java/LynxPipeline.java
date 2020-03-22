@@ -1,10 +1,11 @@
+import com.google.common.collect.Sets;
 import javafx.scene.effect.BlurType;
-import org.opencv.core.Core;
-import org.opencv.core.Mat;
-import org.opencv.core.Scalar;
-import org.opencv.core.Size;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.List;
 
 public class LynxPipeline {
@@ -14,17 +15,21 @@ public class LynxPipeline {
 
 
 
-    //HSV settings
+    //Holds all settings from NT
     double[] hueValues;
     double[] saturationValues;
     double[] valueValues;
-
-    //This holds the threshed Mat
-    Mat hsvThresholdOutput = new Mat();
-
-    //Holds Blur output
-    Mat blurOutput = new Mat();
     double blurRadius;
+
+    //Holds all Targets found
+    List<LynxTarget> targets = new ArrayList<>();
+
+    //All output/input Mats
+    Mat hsvThresholdOutput = new Mat();
+    Mat blurOutput = new Mat();
+    List<MatOfPoint> contours = new ArrayList<>();
+    //Mat to draw contours on
+    Mat contoursOutput;
 
     public LynxPipeline(LynxConfig settings, LynxCameraServer frames){
         //This allows us to access the settings entered on the shuffleboard and output them to the camera server
@@ -46,10 +51,25 @@ public class LynxPipeline {
         //Use the blur output, then perform the HSV thresholds
         hsvThreshold(blurOutput, hueValues, saturationValues, valueValues, hsvThresholdOutput);
 
+        //Find Contours after performing HSV thresholds
+        findContours(hsvThresholdOutput, false, contours);
+
+        //Add each contour to Target Array
+        contours.forEach(contour -> targets.add( new LynxTarget(contour)));
+        //Sort target array by area so largest contour is at the front of the array
+        Collections.sort(targets, Comparator.comparing(LynxTarget::getArea));
+
+
+        //Draw contours onto Mat
+        contoursOutput = hsvThresholdOutput;
+        Imgproc.cvtColor(hsvThresholdOutput, contoursOutput, Imgproc.COLOR_GRAY2BGR);
+        Imgproc.drawContours(contoursOutput, contours, -1, new Scalar(0,255,0), 2);
+
         //Output to camera server
         frames.addFrame("CameraFrame", frame);
         frames.addFrame("HSV Output", hsvThresholdOutput);
         frames.addFrame("Blur Output", blurOutput);
+        frames.addFrame("Contour Output", contoursOutput);
     }
 
 
@@ -80,10 +100,29 @@ public class LynxPipeline {
      * @param val The min and max value
      * @param out The image in which to store the output.
      */
-    private void hsvThreshold(Mat input, double[] hue, double[] sat, double[] val,
-                              Mat out) {
+    private void hsvThreshold(Mat input, double[] hue, double[] sat, double[] val, Mat out) {
         Imgproc.cvtColor(input, out, Imgproc.COLOR_BGR2HSV);
         Core.inRange(out, new Scalar(hue[0], sat[0], val[0]),
                 new Scalar(hue[1], sat[1], val[1]), out);
+    }
+
+
+    /**
+     * Sets the values of pixels in a binary image to their distance to the nearest black pixel.
+     * @param input The image on which to perform the Distance Transform.
+     * @param contours The image in which to store the output.
+     */
+    private void findContours(Mat input, boolean externalOnly, List<MatOfPoint> contours) {
+        Mat hierarchy = new Mat();
+        contours.clear();
+        int mode;
+        if (externalOnly) {
+            mode = Imgproc.RETR_EXTERNAL;
+        }
+        else {
+            mode = Imgproc.RETR_LIST;
+        }
+        int method = Imgproc.CHAIN_APPROX_SIMPLE;
+        Imgproc.findContours(input, contours, hierarchy, mode, method);
     }
 }

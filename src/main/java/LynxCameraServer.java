@@ -12,7 +12,6 @@ public class LynxCameraServer {
 
     public LynxCameraServer(){
         LynxVision = CameraServer.getInstance().putVideo("LynxVisionOutput", 640, 480);
-
     }
 
     public void addFrame(String name, Mat frame){
@@ -21,12 +20,6 @@ public class LynxCameraServer {
 
     public void publishFrame(int index){
         LynxVision.putFrame(frames.values().toArray(new Mat[0])[index]);
-    }
-
-    public void publishAll(){
-        frames.forEach((name,frame) -> {
-            CameraServer.getInstance().putVideo(name, 640, 480).putFrame(frame);
-        });
     }
 
 }

@@ -43,11 +43,7 @@ public class LynxVision {
                 pipeline.process(frame);
 
                 //output frame to camera server
-                if(settings.cameraIndex == 100){
-                    frames.publishAll();
-                }else{
-                    frames.publishFrame( (settings.cameraIndex + frames.frames.size()) % frames.frames.size());
-                }
+                frames.publishFrame( (settings.cameraIndex + frames.frames.size()) % frames.frames.size());
 
             }
 
