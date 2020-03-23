@@ -56,7 +56,7 @@ public class LynxConfig {
                         "SatSlider1", startupHSVSettings[2],
                         "SatSlider2", startupHSVSettings[3],
                         "ValueSlider1", startupHSVSettings[4],
-                        "ValueSlider2", 69
+                        "ValueSlider2", startupHSVSettings[5]
                 ));
 
         hsvSettings = hsvWidget.getEntry();

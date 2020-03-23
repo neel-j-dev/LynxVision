@@ -63,7 +63,7 @@ public class LynxPipeline {
         //Draw contours onto Mat
         contoursOutput = hsvThresholdOutput;
         Imgproc.cvtColor(hsvThresholdOutput, contoursOutput, Imgproc.COLOR_GRAY2BGR);
-        Imgproc.drawContours(contoursOutput, contours, -1, new Scalar(0,255,0), 2);
+        Imgproc.drawContours(contoursOutput, contours, contours.indexOf(targets.get(0)), new Scalar(0,255,0), 2);
 
         //Output to camera server
         frames.addFrame("CameraFrame", frame);

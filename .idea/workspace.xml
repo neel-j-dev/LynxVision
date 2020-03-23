@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bb22d20-6118-4f42-83ec-ed8eb8410394" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/LynxTarget.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
@@ -11,14 +10,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxCameraServer.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxCameraServer.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxVision.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxVision.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/networktables.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LynxCameraServer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxCameraServer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LynxVision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxVision.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -153,6 +149,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584823876589" />
   </component>
   <component name="WpiLibVersionService">
-    <option name="lastChecked" value="20200322170205" />
+    <option name="lastChecked" value="20200323131404" />
   </component>
 </project>
