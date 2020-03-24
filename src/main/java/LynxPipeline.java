@@ -1,4 +1,7 @@
 import com.google.common.collect.Sets;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import javafx.scene.effect.BlurType;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
@@ -14,6 +17,9 @@ public class LynxPipeline {
     LynxConfig settings;
     LynxCameraServer frames;
 
+    //Target data NT entries
+    NetworkTableInstance instance;
+    NetworkTableEntry targetArea;
 
 
     //Holds all settings from NT
@@ -32,10 +38,14 @@ public class LynxPipeline {
     //Mat to draw contours on
     Mat contoursOutput;
 
-    public LynxPipeline(LynxConfig settings, LynxCameraServer frames){
+    public LynxPipeline(LynxConfig settings, LynxCameraServer frames, NetworkTableInstance instance){
         //This allows us to access the settings entered on the shuffleboard and output them to the camera server
         this.settings = settings;
         this.frames = frames;
+        this.instance = instance;
+
+        //Initialize NT entries
+        targetArea = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("Target Area");
     }
 
     public void process(Mat frame){
@@ -63,7 +73,7 @@ public class LynxPipeline {
         //Sort target array by area so largest contour is at the front of the array
         Collections.sort(targets, Comparator.comparing(LynxTarget::getArea).reversed());
 
-        drawContours(targets.get(0));
+        drawContours(targets);
 
         //Output to camera server
         frames.addFrame("CameraFrame", frame);
@@ -126,8 +136,9 @@ public class LynxPipeline {
         Imgproc.findContours(input, contours, hierarchy, mode, method);
     }
 
-    public void drawContours(LynxTarget target){
+    public void drawContours(List<LynxTarget> targets){
         if(!targets.isEmpty()) {
+            LynxTarget target = targets.get(0);
             //Draw contours onto Mat
             contoursOutput = hsvThresholdOutput;
 
@@ -141,6 +152,13 @@ public class LynxPipeline {
             IntStream.range(0, target.vertices.length).forEach( point ->
                     Imgproc.line(contoursOutput, target.vertices[point], target.vertices[(point+1)%4], new Scalar(0,0,255))
             );
+
+            //Publish target data
+            publishTargetData(target);
         }
+    }
+
+    public void publishTargetData(LynxTarget target){
+        targetArea.setDouble(target.area);
     }
 }

@@ -1,5 +1,6 @@
 
 import edu.wpi.first.networktables.NetworkTableInstance;
+import edu.wpi.first.networktables.PersistentException;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
@@ -23,15 +24,15 @@ public class LynxVision {
             NTinstance.startServer();
 
             //Get configs from Smartdashboard
-            LynxConfig settings;
-            settings = new LynxConfig(NTinstance);
+            LynxConfig settings = new LynxConfig(NTinstance);
+
 
             //Holds all pipeline outputs to switch between
             LynxCameraServer frames = new LynxCameraServer();
 
 
             //LynxPipeline is responsible for all image processing
-            LynxPipeline pipeline = new LynxPipeline(settings, frames);
+            LynxPipeline pipeline = new LynxPipeline(settings, frames, NTinstance);
 
             //Continue while thread is not interrupted
             while(!Thread.interrupted()){
