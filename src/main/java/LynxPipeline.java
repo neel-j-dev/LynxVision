@@ -7,6 +7,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class LynxPipeline {
 
@@ -51,19 +52,18 @@ public class LynxPipeline {
         //Use the blur output, then perform the HSV thresholds
         hsvThreshold(blurOutput, hueValues, saturationValues, valueValues, hsvThresholdOutput);
 
+        //Remove all previously stored contours
+        targets.clear();
+
         //Find Contours after performing HSV thresholds
         findContours(hsvThresholdOutput, false, contours);
 
         //Add each contour to Target Array
         contours.forEach(contour -> targets.add( new LynxTarget(contour)));
         //Sort target array by area so largest contour is at the front of the array
-        Collections.sort(targets, Comparator.comparing(LynxTarget::getArea));
+        Collections.sort(targets, Comparator.comparing(LynxTarget::getArea).reversed());
 
-
-        //Draw contours onto Mat
-        contoursOutput = hsvThresholdOutput;
-        Imgproc.cvtColor(hsvThresholdOutput, contoursOutput, Imgproc.COLOR_GRAY2BGR);
-        Imgproc.drawContours(contoursOutput, contours, contours.indexOf(targets.get(0)), new Scalar(0,255,0), 2);
+        drawContours(targets.get(0));
 
         //Output to camera server
         frames.addFrame("CameraFrame", frame);
@@ -124,5 +124,23 @@ public class LynxPipeline {
         }
         int method = Imgproc.CHAIN_APPROX_SIMPLE;
         Imgproc.findContours(input, contours, hierarchy, mode, method);
+    }
+
+    public void drawContours(LynxTarget target){
+        if(!targets.isEmpty()) {
+            //Draw contours onto Mat
+            contoursOutput = hsvThresholdOutput;
+
+            //Converts mat from grayscale to BGR so we can draw bounding and rotated rect in colour
+            Imgproc.cvtColor(hsvThresholdOutput, contoursOutput, Imgproc.COLOR_GRAY2BGR);
+
+            //Draws bounding rect
+            Imgproc.rectangle(contoursOutput, target.boundingRect.tl(), target.boundingRect.br(), new Scalar(255, 0, 0), 3);
+
+            //Draws rotated rect
+            IntStream.range(0, target.vertices.length).forEach( point ->
+                    Imgproc.line(contoursOutput, target.vertices[point], target.vertices[(point+1)%4], new Scalar(0,0,255))
+            );
+        }
     }
 }

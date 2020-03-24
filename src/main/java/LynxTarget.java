@@ -1,5 +1,4 @@
-import org.opencv.core.MatOfPoint;
-import org.opencv.core.Rect;
+import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 
 public class LynxTarget {
@@ -9,15 +8,26 @@ public class LynxTarget {
     //Holds bounding rect of contour
     Rect boundingRect;
 
-    //Holds Area of contour
+    //Holds minAreaRect of target
+    RotatedRect rRect;
+    //RotatedRect vertices
+    Point[] vertices = new Point[4];
+
+    //Target properties
     double area;
+
 
 
 
     public LynxTarget(MatOfPoint target){
         this.target = target;
+
         this.boundingRect = Imgproc.boundingRect(target);
+
         this.area = Imgproc.contourArea(target);
+
+        this.rRect = Imgproc.minAreaRect( new MatOfPoint2f(target.toArray()));
+        this.rRect.points(this.vertices);
     }
 
     //returns area of the target

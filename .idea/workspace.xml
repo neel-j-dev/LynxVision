@@ -11,8 +11,10 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffleboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/shuffleboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LynxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networktables.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxTarget.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxTarget.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,6 +149,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584823876589" />
   </component>
   <component name="WpiLibVersionService">
-    <option name="lastChecked" value="20200324000146" />
+    <option name="lastChecked" value="20200324103743" />
   </component>
 </project>
