@@ -10,11 +10,9 @@
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/networktables.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini.bak" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/shuffleboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/shuffleboard.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LynxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -48,7 +46,7 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ShuffleboardWidgetExample" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shuffleboard" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -112,10 +110,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584367029104" />
-    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1584650743755">
+    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1585015280406">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1584650743755" />
+    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585015280406" />
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1584475027665" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1584330902269">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -149,6 +147,6 @@
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584823876589" />
   </component>
   <component name="WpiLibVersionService">
-    <option name="lastChecked" value="20200323131404" />
+    <option name="lastChecked" value="20200324000146" />
   </component>
 </project>

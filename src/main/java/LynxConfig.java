@@ -78,6 +78,7 @@ public class LynxConfig {
         threshHoldSettings = hsvSettings.getDoubleArray(new double[]{0});
         blurAmount = blurSettings.getDouble(0.0);
         cameraIndex = cameraOutput.getNumber(100).intValue();
+
     }
 
 
