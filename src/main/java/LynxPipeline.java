@@ -22,6 +22,8 @@ public class LynxPipeline {
     NetworkTableEntry targetHeight;
     NetworkTableEntry targetBoundingWidth;
     NetworkTableEntry targetBoundingHeight;
+    NetworkTableEntry targetYaw;
+    NetworkTableEntry targetPitch;
 
 
     //Holds all settings from NT
@@ -32,6 +34,7 @@ public class LynxPipeline {
 
     //Holds all Targets found
     List<LynxTarget> targets = new ArrayList<>();
+    LynxTarget target;
 
     //All output/input Mats
     Mat hsvThresholdOutput = new Mat();
@@ -47,12 +50,13 @@ public class LynxPipeline {
         this.instance = instance;
 
         //Initialize NT entries
-        targetArea = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetArea");
-        targetWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetWidth");
-        targetHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetHeight");
-
-        targetBoundingWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetBoundingWidth");
-        targetBoundingHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetBoundingHeight");
+        targetArea = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("area");
+        targetWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("width");
+        targetHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("height");
+        targetBoundingWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("boundingWidth");
+        targetBoundingHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("boundingHeight");
+        targetYaw = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("yaw");
+        targetPitch = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("pitch");
 
     }
 
@@ -146,7 +150,7 @@ public class LynxPipeline {
 
     public void drawContours(List<LynxTarget> targets){
         if(!targets.isEmpty()) {
-            LynxTarget target = targets.get(0);
+            target = targets.get(0);
             //Draw contours onto Mat
             contoursOutput = hsvThresholdOutput;
 
@@ -161,6 +165,9 @@ public class LynxPipeline {
                     Imgproc.line(contoursOutput, target.vertices[point], target.vertices[(point+1)%4], new Scalar(0,0,255))
             );
 
+            //Draws center point
+            Imgproc.circle(contoursOutput, target.centerPoint, 4, new Scalar(0, 255, 0) );
+
             //Publish target data
             publishTargetData(target);
         }
@@ -174,5 +181,16 @@ public class LynxPipeline {
 
         targetBoundingWidth.setDouble(target.boundingRect.width);
         targetBoundingHeight.setDouble(target.boundingRect.height);
+
+        targetYaw.setDouble(getYaw(target.coordinates[0], settings.imageWidth, settings.focalLength));
+        targetPitch.setDouble(getPitch(target.coordinates[1], settings.imageHeight, settings.focalLength));
+    }
+
+    public double getYaw(double x, double width, double focalLength){
+        return Math.atan(  (x - (width/2 - 0.5) )  / focalLength     );
+    }
+
+    public double getPitch(double y, double height, double focalLength){
+        return Math.atan(  (y - (height/2 - 0.5) )  / focalLength     );
     }
 }

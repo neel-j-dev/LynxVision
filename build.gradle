@@ -61,7 +61,7 @@ dependencies {
 }
 
 
-task fatJar(type: Jar) {
+task createJar(type: Jar) {
     baseName = project.name + '-all'
     from {
         configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
@@ -72,8 +72,8 @@ task fatJar(type: Jar) {
     }
 }
 
-task runFatJar(type: JavaExec) {
-    dependsOn fatJar
-    classpath = fatJar.outputs.files
+task runJar(type: JavaExec) {
+    dependsOn createJar
+    classpath = createJar.outputs.files
     main = 'LynxVision'
 }

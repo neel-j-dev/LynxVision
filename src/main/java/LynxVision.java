@@ -21,10 +21,10 @@ public class LynxVision {
 
     public void startLynxVision() throws IOException, URISyntaxException {
         //Load DLLs
-        loadDLLs();
+        System.load(getResource("opencv_java341.dll"));
 
         //Example "frame" from camera
-        Mat frame = loadStaticFrame();
+        Mat frame = Imgcodecs.imread(getResource("LoadingBay.jpg"));
 
         //Start vision thread
         Thread visionThread = new Thread(() ->{
@@ -62,39 +62,20 @@ public class LynxVision {
     }
 
 
-    public void loadDLLs() throws IOException {
-        String libName = "opencv_java341.dll"; // The name of the file in resources/ dir
-        URL url = LynxVision.class.getResource("/" + libName);
-
-        //Creates temp directory
-        File tmpDir = Files.createTempDirectory("my-native-lib").toFile();
-        tmpDir.deleteOnExit();
-        File nativeLibTmpFile = new File(tmpDir, libName);
-        nativeLibTmpFile.deleteOnExit();
-
-        //Writes to temp directory
-        try (InputStream in = url.openStream()) {
-            Files.copy(in, nativeLibTmpFile.toPath());
-        }
-        System.load(nativeLibTmpFile.getAbsolutePath());
-    }
-
-    public Mat loadStaticFrame() throws IOException{
-        String libName = "LoadingBay.jpg"; // The name of the file in resources/ dir
-        URL url = LynxVision.class.getResource("/" + libName);
+    public String getResource(String filename) throws IOException {
+        URL url = LynxVision.class.getResource("/" + filename);
 
         //Creates temp directory
         File tmpDir = Files.createTempDirectory("static-frames").toFile();
         tmpDir.deleteOnExit();
-        File nativeLibTmpFile = new File(tmpDir, libName);
+        File nativeLibTmpFile = new File(tmpDir, filename);
         nativeLibTmpFile.deleteOnExit();
 
         //Writes to temp directory
         try (InputStream in = url.openStream()) {
             Files.copy(in, nativeLibTmpFile.toPath());
         }
-        return Imgcodecs.imread(nativeLibTmpFile.getAbsolutePath()) ;
+        return nativeLibTmpFile.getAbsolutePath();
     }
-
 
 }
