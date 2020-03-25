@@ -1,8 +1,6 @@
-import com.google.common.collect.Sets;
-import edu.wpi.first.networktables.NetworkTable;
+
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
-import javafx.scene.effect.BlurType;
 import org.opencv.core.*;
 import org.opencv.imgproc.Imgproc;
 
@@ -20,6 +18,10 @@ public class LynxPipeline {
     //Target data NT entries
     NetworkTableInstance instance;
     NetworkTableEntry targetArea;
+    NetworkTableEntry targetWidth;
+    NetworkTableEntry targetHeight;
+    NetworkTableEntry targetBoundingWidth;
+    NetworkTableEntry targetBoundingHeight;
 
 
     //Holds all settings from NT
@@ -45,7 +47,13 @@ public class LynxPipeline {
         this.instance = instance;
 
         //Initialize NT entries
-        targetArea = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("Target Area");
+        targetArea = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetArea");
+        targetWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetWidth");
+        targetHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetHeight");
+
+        targetBoundingWidth = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetBoundingWidth");
+        targetBoundingHeight = instance.getTable("Lynx Vision").getSubTable("TargetData").getEntry("targetBoundingHeight");
+
     }
 
     public void process(Mat frame){
@@ -160,5 +168,11 @@ public class LynxPipeline {
 
     public void publishTargetData(LynxTarget target){
         targetArea.setDouble(target.area);
+
+        targetWidth.setDouble(target.rRect.size.width);
+        targetHeight.setDouble(target.rRect.size.height);
+
+        targetBoundingWidth.setDouble(target.boundingRect.width);
+        targetBoundingHeight.setDouble(target.boundingRect.height);
     }
 }

@@ -2,22 +2,46 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bb22d20-6118-4f42-83ec-ed8eb8410394" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/artifacts/LynxVision_jar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/dll/opencv_java341.dll" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jars/opencv-341.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/jars/shuffleboard.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/META-INF/MANIFEST.MF" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileContent/fileContent.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileContent/fileContent.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/resourceHashesCache.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/jarAnalysis.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/taskHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/outputFiles.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxConfig.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxPipeline.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxTarget.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxTarget.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxVision.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxVision.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/debug/desktopinfo.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/debug/partial/LynxVisiion_java.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVisiion-1.0-SNAPSHOT.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVisiion-1.0-SNAPSHOT.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVisiion-2020.2.2.tar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVisiion-2020.2.2.zip" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVision-2020.2.2.tar" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/LynxVision-2020.2.2.tar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/distributions/LynxVision-2020.2.2.zip" beforeDir="false" afterPath="$PROJECT_DIR$/build/distributions/LynxVision-2020.2.2.zip" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/LynxVisiion-1.0-SNAPSHOT.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/LynxVisiion-2020.2.2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/libs/LynxVision-2020.2.2.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/libs/LynxVision-2020.2.2.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/LynxVision" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/LynxVision" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/scripts/LynxVision.bat" beforeDir="false" afterPath="$PROJECT_DIR$/build/scripts/LynxVision.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/jars/opencv-344.jar" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/networktables.ini.bak" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini.bak" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/shuffleboard.json" beforeDir="false" afterPath="$PROJECT_DIR$/shuffleboard.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LynxConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/LynxVision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxVision.java" afterDir="false" />
@@ -54,8 +78,9 @@
   <component name="PropertiesComponent">
     <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../shuffleboard" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$USER_HOME$/My Documents" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
@@ -63,6 +88,8 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\LynxVision\dll" />
+      <recent name="D:\LynxVision\jars" />
       <recent name="D:\LynxVision\dlls" />
     </key>
   </component>
@@ -118,10 +145,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584367029104" />
-    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1585015280406">
+    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1585107727234">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585015280406" />
+    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585107727234" />
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1584475027665" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1584330902269">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -139,22 +166,26 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state width="1877" height="295" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1584330902268" />
-    <state x="440" y="111" key="SettingsEditor" timestamp="1584649598561">
+    <state x="440" y="111" key="SettingsEditor" timestamp="1585108441036">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="440" y="111" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1584649598561" />
+    <state x="440" y="111" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585108441036" />
     <state x="440" y="115" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584380324295" />
     <state x="342" y="147" key="new project wizard" timestamp="1584635195169">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="342" y="147" key="new project wizard/0.0.1920.1040@0.0.1920.1040" timestamp="1584635195169" />
     <state x="342" y="153" key="new project wizard/0.0.1920.1080@0.0.1920.1080" timestamp="1584479167773" />
+    <state x="616" y="240" key="run.anything.popup" timestamp="1585107133317">
+      <screen x="0" y="0" width="1920" height="1040" />
+    </state>
+    <state x="616" y="240" key="run.anything.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1585107133317" />
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup" timestamp="1584823876589">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="623" y="225" width="672" height="678" key="search.everywhere.popup/0.0.1920.1040@0.0.1920.1040" timestamp="1584823876589" />
   </component>
   <component name="WpiLibVersionService">
-    <option name="lastChecked" value="20200324160227" />
+    <option name="lastChecked" value="20200324235253" />
   </component>
 </project>

@@ -1,15 +1,20 @@
 
 import edu.wpi.first.networktables.NetworkTableInstance;
-import edu.wpi.first.networktables.PersistentException;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
 
 
+import java.io.File;
 import java.io.IOException;
 
 public class LynxVision {
 
     public static void main(String[] args) throws IOException{
+
+        new LynxVision().startLynxVision();
+    }
+
+    public void startLynxVision() throws IOException {
         //Load DLLs
         loadDLLs();
 
@@ -53,13 +58,9 @@ public class LynxVision {
     }
 
 
-    public static void loadDLLs() throws IOException {
+    public void loadDLLs() throws IOException {
         //Load dependent libraries
-        System.loadLibrary("wpiHaljni");
-        System.loadLibrary("wpiHal");
-        System.loadLibrary("ntcore");
-        System.loadLibrary("ntcorejni");
-        System.loadLibrary("opencv_java401");
+        System.load(new File(".").getCanonicalPath()+File.separator+"dll\\opencv_java341.dll");
     }
 
 
