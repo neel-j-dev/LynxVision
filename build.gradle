@@ -12,6 +12,9 @@ sourceCompatibility = 1.8
 mainClassName = 'LynxVision'
 
 repositories {
+    flatDir {
+        dirs 'dll/opencv_java341.dll'
+    }
     mavenCentral()
     maven { url "https://frcmaven.wpi.edu/artifactory/release/" }
 }
@@ -57,3 +60,20 @@ dependencies {
     implementation files('jars/opencv-341.jar')
 }
 
+
+task fatJar(type: Jar) {
+    baseName = project.name + '-all'
+    from {
+        configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) }
+    }
+    with jar
+    manifest {
+        attributes 'Main-Class': 'LynxVision'
+    }
+}
+
+task runFatJar(type: JavaExec) {
+    dependsOn fatJar
+    classpath = fatJar.outputs.files
+    main = 'LynxVision'
+}

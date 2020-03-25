@@ -2,25 +2,29 @@
 import edu.wpi.first.networktables.NetworkTableInstance;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
+import org.opencv.imgproc.Imgproc;
 
 
 import java.io.File;
 import java.io.IOException;
+import java.io.InputStream;
+import java.net.URISyntaxException;
+import java.net.URL;
+import java.nio.file.Files;
 
 public class LynxVision {
 
-    public static void main(String[] args) throws IOException{
+    public static void main(String[] args) throws IOException, URISyntaxException {
 
         new LynxVision().startLynxVision();
     }
 
-    public void startLynxVision() throws IOException {
+    public void startLynxVision() throws IOException, URISyntaxException {
         //Load DLLs
         loadDLLs();
 
         //Example "frame" from camera
-        Mat frame = Imgcodecs.imread("test_images\\LoadingBay.jpg");
-
+        Mat frame = loadStaticFrame();
 
         //Start vision thread
         Thread visionThread = new Thread(() ->{
@@ -59,8 +63,37 @@ public class LynxVision {
 
 
     public void loadDLLs() throws IOException {
-        //Load dependent libraries
-        System.load(new File(".").getCanonicalPath()+File.separator+"dll\\opencv_java341.dll");
+        String libName = "opencv_java341.dll"; // The name of the file in resources/ dir
+        URL url = LynxVision.class.getResource("/" + libName);
+
+        //Creates temp directory
+        File tmpDir = Files.createTempDirectory("my-native-lib").toFile();
+        tmpDir.deleteOnExit();
+        File nativeLibTmpFile = new File(tmpDir, libName);
+        nativeLibTmpFile.deleteOnExit();
+
+        //Writes to temp directory
+        try (InputStream in = url.openStream()) {
+            Files.copy(in, nativeLibTmpFile.toPath());
+        }
+        System.load(nativeLibTmpFile.getAbsolutePath());
+    }
+
+    public Mat loadStaticFrame() throws IOException{
+        String libName = "LoadingBay.jpg"; // The name of the file in resources/ dir
+        URL url = LynxVision.class.getResource("/" + libName);
+
+        //Creates temp directory
+        File tmpDir = Files.createTempDirectory("static-frames").toFile();
+        tmpDir.deleteOnExit();
+        File nativeLibTmpFile = new File(tmpDir, libName);
+        nativeLibTmpFile.deleteOnExit();
+
+        //Writes to temp directory
+        try (InputStream in = url.openStream()) {
+            Files.copy(in, nativeLibTmpFile.toPath());
+        }
+        return Imgcodecs.imread(nativeLibTmpFile.getAbsolutePath()) ;
     }
 
 
