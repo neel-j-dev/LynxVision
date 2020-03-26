@@ -1,5 +1,7 @@
 [NetworkTables Storage 3.0]
-double "/Shuffleboard/Lynx Vision/Blur Settings"=2.4
-double "/Shuffleboard/Lynx Vision/Diagonal FOV"=0
+double "/Shuffleboard/Lynx Vision/Blur Settings"=0
+double "/Shuffleboard/Lynx Vision/Diagonal FOV"=60
 array double "/Shuffleboard/Lynx Vision/HSV Settings"=0,255,0,255,149.519,250
 double "/Shuffleboard/Lynx Vision/OutputStream Index"=3
+boolean "/Shuffleboard/Lynx Vision/Start"=false
+double "/Shuffleboard/Lynx Vision/Stream Index"=30

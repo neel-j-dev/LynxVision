@@ -3,12 +3,15 @@ import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class LynxConfig {
+    NetworkTableInstance instance;
+
     LynxConsole lynxConsole;
 
     NetworkTableEntry blurSettings;
     NetworkTableEntry cameraOutput;
     NetworkTableEntry hsvSettings;
     NetworkTableEntry diagonalFOV;
+    NetworkTableEntry calibrating;
 
 
     //Stores all settings
@@ -19,10 +22,16 @@ public class LynxConfig {
     double imageHeight;
     double FOV;
     double focalLength;
+    boolean isCalibrating;
 
 
-    public LynxConfig(NetworkTableInstance instance){
+    LynxCalibration calibration;
+
+    public LynxConfig(NetworkTableInstance instance, LynxCameraServer cameraServer){
+        this.instance = instance;
+
         lynxConsole = new LynxConsole(instance);
+        calibration = new LynxCalibration(instance, lynxConsole.calibrationTab, cameraServer);
 
         updateNT();
 
@@ -37,6 +46,7 @@ public class LynxConfig {
         hsvSettings = lynxConsole.hsvWidget.getEntry();
         cameraOutput = lynxConsole.cameraOutput.getEntry();
         diagonalFOV = lynxConsole.FOV.getEntry();
+        calibrating = lynxConsole.calibrateCamera.getEntry();
     }
 
     public void grabSettings(){
@@ -48,6 +58,13 @@ public class LynxConfig {
         imageWidth = 640;
         imageHeight = 480;
         focalLength = imageWidth / ( 2.0 *Math.tan(FOV/2.0));
+        isCalibrating = calibrating.getBoolean(false);
+
+        //If calibration widget is toggled on start a new calibration thread
+        if(isCalibrating){
+            calibration.startCalibration();
+            calibrating.setBoolean(false);
+        }
     }
 
 

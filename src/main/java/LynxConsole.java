@@ -10,6 +10,7 @@ import java.util.Map;
 
 public class LynxConsole {
     ShuffleboardTab lynxTab;
+    ShuffleboardTab calibrationTab;
 
     NetworkTableInstance instance;
     NetworkTable lynxTable;
@@ -19,6 +20,7 @@ public class LynxConsole {
     SimpleWidget blurSettings;
     SimpleWidget cameraOutput;
     SimpleWidget FOV;
+    SimpleWidget calibrateCamera;
 
 
     public LynxConsole(NetworkTableInstance instance){
@@ -27,6 +29,7 @@ public class LynxConsole {
 
         //Shuffleboard tab
         this.lynxTab = Shuffleboard.getTab("Lynx Vision");
+        this.calibrationTab = Shuffleboard.getTab("Lynx3D");
 
         //Get blur radius from shuffleboard
         blurSettings = lynxTab.addPersistent("Blur Settings", 0).
@@ -42,14 +45,16 @@ public class LynxConsole {
 
 
         //Get which output user wants outputted to the CameraServer.
-        this.cameraOutput = lynxTab.addPersistent("Stream Index", 30)
+        this.cameraOutput = lynxTab.addPersistent("Stream Index", 0)
                 .withWidget(BuiltInWidgets.kTextView);
 
         //Gets FOV of camera
         this.FOV = lynxTab.addPersistent("Diagonal FOV", 0)
                 .withWidget(BuiltInWidgets.kTextView);
 
-
+        //Toggle for starting camera calibration
+        this.calibrateCamera = calibrationTab.add("Start", false)
+                .withWidget(BuiltInWidgets.kToggleButton);
         Shuffleboard.update();
 
     }
@@ -64,5 +69,6 @@ public class LynxConsole {
                 "ValueSlider2", settings[5]
         ));
     }
+
 
 }

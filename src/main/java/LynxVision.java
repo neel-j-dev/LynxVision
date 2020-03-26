@@ -2,7 +2,6 @@
 import edu.wpi.first.networktables.NetworkTableInstance;
 import org.opencv.core.Mat;
 import org.opencv.imgcodecs.Imgcodecs;
-import org.opencv.imgproc.Imgproc;
 
 
 import java.io.File;
@@ -24,7 +23,7 @@ public class LynxVision {
         System.load(getResource("opencv_java341.dll"));
 
         //Example "frame" from camera
-        Mat frame = Imgcodecs.imread(getResource("LoadingBay.jpg"));
+        Mat frame = Imgcodecs.imread(getResource("chessboard.png"));
 
         //Start vision thread
         Thread visionThread = new Thread(() ->{
@@ -32,13 +31,14 @@ public class LynxVision {
             NetworkTableInstance NTinstance = NetworkTableInstance.getDefault();
             NTinstance.startServer();
 
-            //Get configs from Smartdashboard
-            LynxConfig settings = new LynxConfig(NTinstance);
 
 
             //Holds all pipeline outputs to switch between
             LynxCameraServer frames = new LynxCameraServer();
+            frames.addFrame("CameraFrame", frame);
 
+            //Get configs from Smartdashboard
+            LynxConfig settings = new LynxConfig(NTinstance, frames);
 
             //LynxPipeline is responsible for all image processing
             LynxPipeline pipeline = new LynxPipeline(settings, frames, NTinstance);
