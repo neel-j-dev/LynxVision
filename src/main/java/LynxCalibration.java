@@ -16,6 +16,9 @@ import org.opencv.imgproc.Imgproc;
 import java.util.*;
 import java.util.stream.IntStream;
 
+import static org.bytedeco.javacpp.opencv_calib3d.CV_CALIB_CB_ADAPTIVE_THRESH;
+import static org.bytedeco.javacpp.opencv_calib3d.CV_CALIB_CB_FILTER_QUADS;
+
 
 public class LynxCalibration {
     NetworkTableInstance instance;
@@ -32,7 +35,7 @@ public class LynxCalibration {
     List<Mat> imagePoints;
     List<Mat> objectPoints;
     Mat intrinsic;
-    Mat distCoeffs;
+    MatOfDouble distCoeffs;
     Mat savedImage;
 
     CvSource calibrationStream;
@@ -49,7 +52,7 @@ public class LynxCalibration {
         this.imagePoints = new ArrayList<>();
         this.objectPoints = new ArrayList<>();
         this.intrinsic = new Mat(3, 3, CvType.CV_32FC1);
-        this.distCoeffs = new Mat();
+        this.distCoeffs = new MatOfDouble();
         this.boardSize = new Size(7, 7);
         this.savedImage = cameraFrame;
 
@@ -90,11 +93,11 @@ public class LynxCalibration {
     }
 
     public void drawChessboardCorners(){
-        Calib3d.drawChessboardCorners(cameraFrame, boardSize, imageCorners, findChessboard());
+        //Calib3d.drawChessboardCorners(cameraFrame, boardSize, imageCorners, findChessboard());
     }
 
     public boolean findChessboard(){
-        boolean found = Calib3d.findChessboardCorners(cameraFrame, boardSize, imageCorners);
+        boolean found = Calib3d.findChessboardCorners(cameraFrame, boardSize, imageCorners, Calib3d.CALIB_CB_ADAPTIVE_THRESH | Calib3d.CALIB_CB_FILTER_QUADS);
         return found;
     }
 
@@ -115,41 +118,14 @@ public class LynxCalibration {
         List<Mat> rvecs = new ArrayList<>();
         List<Mat> tvecs = new ArrayList<>();
         Mat cameraMatrix = new Mat(3,3,CvType.CV_32FC1);
+        Mat perViewErrors = new Mat();
         intrinsic.put(0, 0, 1);
         intrinsic.put(1, 1, 1);
-        System.out.println(objectPoints.size() + " " + imagePoints.size());
 
-        double error = Calib3d.calibrateCamera(objectPoints, imagePoints, savedImage.size(), cameraMatrix, distCoeffs, rvecs, tvecs);
+        double error = Calib3d.calibrateCameraExtended(objectPoints, imagePoints, savedImage.size(), cameraMatrix, distCoeffs, rvecs, tvecs, new Mat(), new Mat(), perViewErrors);
         System.out.println(error);
-        getSnapShotErrors(objectPoints, rvecs, tvecs, cameraMatrix, distCoeffs, imagePoints);
+        System.out.println(perViewErrors.dump());
     }
 
-    public void getSnapShotErrors(List<Mat> objectPoints, List<Mat> rvecs, List<Mat> tvecs, Mat cameraMatrix, Mat distCoeffs, List<Mat> imagePoints){
-        double total_error = 0;
-        double total_points = 0;
-        MatOfPoint2f reprojectedPoints = new MatOfPoint2f();
-        MatOfPoint3f currentObjectPoint = new MatOfPoint3f();
-        MatOfDouble distortionCoeffs = new MatOfDouble();
-        for(int i = 0; i < objectPoints.size(); i++){
-
-            objectPoints.get(i).convertTo(currentObjectPoint, CvType.CV_32FC2);
-            distCoeffs.convertTo(distortionCoeffs,CvType.CV_32FC2 );
-
-            /*Calib3d.projectPoints(currentObjectPoint, rvecs.get(i), tvecs.get(i), cameraMatrix, distortionCoeffs, reprojectedPoints);
-            total_error += Math.pow(Math.abs(Core.norm(imagePoints.get(i), reprojectedPoints)), 2);
-            System.out.println(Math.pow(Math.abs(Core.norm(imagePoints.get(i), reprojectedPoints)), 2));
-            total_points += objectPoints.get(i).size().area();*/
-            List<Mat> currMat = new ArrayList<>();
-            currMat.add(objectPoints.get(i));
-            List<Mat> currPoint = new ArrayList<>();
-            currPoint.add(imagePoints.get(i));
-            List<Mat> rvecs2 = new ArrayList<>();
-            List<Mat> tvecs2 = new ArrayList<>();
-
-            double r  = Calib3d.calibrateCamera(currMat, currPoint, new Size(1, 1), new Mat(), new MatOfDouble(), rvecs2, tvecs2);
-            System.out.println(r);
-        }
-        //System.out.println(total_error / total_points);
-    }
 
 }

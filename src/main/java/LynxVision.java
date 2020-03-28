@@ -23,7 +23,7 @@ public class LynxVision {
         System.load(getResource("opencv_java341.dll"));
 
         //Example "frame" from camera
-        Mat frame = Imgcodecs.imread(getResource("chessboard.png"));
+        Mat frame = Imgcodecs.imread(getResource("chessboard.jpg"));
 
         //Start vision thread
         Thread visionThread = new Thread(() ->{
