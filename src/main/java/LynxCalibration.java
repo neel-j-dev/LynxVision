@@ -34,7 +34,7 @@ public class LynxCalibration {
 
     List<Mat> imagePoints;
     List<Mat> objectPoints;
-    Mat intrinsic;
+    Mat cameraMatrix;
     MatOfDouble distCoeffs;
     Mat savedImage;
 
@@ -51,7 +51,6 @@ public class LynxCalibration {
 
         this.imagePoints = new ArrayList<>();
         this.objectPoints = new ArrayList<>();
-        this.intrinsic = new Mat(3, 3, CvType.CV_32FC1);
         this.distCoeffs = new MatOfDouble();
         this.boardSize = new Size(7, 7);
         this.savedImage = cameraFrame;
@@ -63,13 +62,13 @@ public class LynxCalibration {
     }
 
     public void startCalibration(){
-
+        LynxSolvePnP solvePNP = new LynxSolvePnP();
         displayWidgets();
         Thread calibrationThread = new Thread(() ->{
 
             while(!Thread.interrupted()){
                 drawChessboardCorners();
-                calibrationStream.putFrame(cameraFrame);
+                calibrationStream.putFrame(solvePNP.getVectors(cameraFrame, cameraMatrix, distCoeffs ));
 
                 if(takeSnapShot.getEntry().getBoolean(false)){
                     cameraFrame.copyTo(this.savedImage);
@@ -97,8 +96,7 @@ public class LynxCalibration {
     }
 
     public boolean findChessboard(){
-        boolean found = Calib3d.findChessboardCorners(cameraFrame, boardSize, imageCorners, Calib3d.CALIB_CB_ADAPTIVE_THRESH | Calib3d.CALIB_CB_FILTER_QUADS);
-        return found;
+        return Calib3d.findChessboardCorners(cameraFrame, boardSize, imageCorners, Calib3d.CALIB_CB_ADAPTIVE_THRESH | Calib3d.CALIB_CB_FILTER_QUADS);
     }
 
     public void takeSnapShot(){
@@ -117,10 +115,8 @@ public class LynxCalibration {
     public void calibrateCamera(){
         List<Mat> rvecs = new ArrayList<>();
         List<Mat> tvecs = new ArrayList<>();
-        Mat cameraMatrix = new Mat(3,3,CvType.CV_32FC1);
+        cameraMatrix = new Mat(3,3,CvType.CV_32FC1);
         Mat perViewErrors = new Mat();
-        intrinsic.put(0, 0, 1);
-        intrinsic.put(1, 1, 1);
 
         double error = Calib3d.calibrateCameraExtended(objectPoints, imagePoints, savedImage.size(), cameraMatrix, distCoeffs, rvecs, tvecs, new Mat(), new Mat(), perViewErrors);
         System.out.println(error);
