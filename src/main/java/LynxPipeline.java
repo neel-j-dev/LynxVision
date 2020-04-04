@@ -85,7 +85,7 @@ public class LynxPipeline {
         //Sort target array by area so largest contour is at the front of the array
         Collections.sort(targets, Comparator.comparing(LynxTarget::getArea).reversed());
 
-        drawContours(targets);
+        //drawContours(targets);
 
         //Output to camera server
         frames.addFrame("CameraFrame", frame);

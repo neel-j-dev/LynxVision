@@ -2,20 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="5bb22d20-6118-4f42-83ec-ed8eb8410394" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/src/main/java/LynxSolvePnP.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.0/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/executionHistory/executionHistory.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/fileHashes/fileHashes.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/classAnalysis.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/6.0.1/javaCompile/javaCompile.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/classes/java/main/LynxCalibration.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/classes/java/main/LynxCalibration.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/LynxCalibration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxCalibration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/networktables.ini" beforeDir="false" afterPath="$PROJECT_DIR$/networktables.ini" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxPipeline.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/LynxVision.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/LynxVision.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,7 +42,7 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../chameleon-vision" />
     <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -108,7 +98,9 @@
       <updated>1584326727271</updated>
       <workItem from="1585413116523" duration="457000" />
       <workItem from="1585413694175" duration="1297000" />
-      <workItem from="1585425625034" duration="595000" />
+      <workItem from="1585425625034" duration="1820000" />
+      <workItem from="1585490387294" duration="18000" />
+      <workItem from="1585500037815" duration="239000" />
     </task>
     <servers />
   </component>
@@ -130,10 +122,10 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="690" y="288" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1584367029104" />
-    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1585413518363">
+    <state x="740" y="284" key="FileChooserDialogImpl" timestamp="1585490405640">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585413518363" />
+    <state x="740" y="284" key="FileChooserDialogImpl/0.0.1920.1040@0.0.1920.1040" timestamp="1585490405640" />
     <state x="740" y="295" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1584475027665" />
     <state width="1877" height="295" key="GridCell.Tab.0.bottom" timestamp="1584330902269">
       <screen x="0" y="0" width="1920" height="1080" />
@@ -156,10 +148,10 @@
     </state>
     <state x="440" y="111" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1585413590646" />
     <state x="440" y="115" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1584380324295" />
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1585425647936">
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog" timestamp="1585490387282">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
-    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585425647936" />
+    <state x="667" y="347" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1585490387282" />
     <state x="342" y="147" key="new project wizard" timestamp="1585362691045">
       <screen x="0" y="0" width="1920" height="1040" />
     </state>
